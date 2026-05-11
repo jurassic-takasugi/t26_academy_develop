@@ -42,7 +42,18 @@ public class BookMstService {
 
         return bookMstDtoList;
     }
-    
+    public void insert(BookMstDto bookMstDto) {
+
+        // Entity生成
+        BookMst book = new BookMst();
+
+        // DTO → Entity
+        book.setIsbn(bookMstDto.getIsbn());
+        book.setTitle(bookMstDto.getTitle());
+
+        // DB保存
+        this.bookMstRepository.save(book);
+    }
 }
 
 
